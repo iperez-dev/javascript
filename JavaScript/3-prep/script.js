@@ -93,28 +93,54 @@ console.log(checkArr(["bad", "bad"]), "Fail");
 
 ////////////////////////////////////////////////////////////////////////////////
 // Question3 | ky8
-/*Create a function that takes 2 integers in form of a string as an input, and outputs the sum (also as a string): 
+//Number() String()
 
+/*Create a function that takes 2 integers in form of a string as an input, and outputs the sum (also as a string): 
 Example: (Input1, Input2 -->Output)
 "4",  "5" --> "9"
 "34", "5" --> "39"
 "", "" --> "0"
 "2", "" --> "2"
 "-5", "3" --> "-2"*/
+
+//function(strNum1, strNum2): string | negative number, empty string
+//return: strSum = strNum1 + strNum2
+//posible solutions: convert str to num -> Number() | add two numbers | convert the result back to a number -> String()
+
+//example
+function strSum(strNum1, strNum2) {
+  //returns the sum of strNum1, strNum2 in a string form
+  return String(Number(strNum1) + Number(strNum2));
+}
+
+//test cases
+console.log(strSum("4", "5"), "9");
+console.log(strSum("34", "5"), "39");
+console.log(strSum("", ""), "0");
+console.log(strSum("2", ""), "2");
+console.log(strSum("-5", "3"), "-2");
+
 ////////////////////////////////////////////////////////////////////////////////
 // Question4 | ky8
+// push()
 /*Unfinished Loop - Bug Fixing #1
 Oh no, Timmy's created an infinite loop! Help Timmy find and fix the bug in his unfinished for loop!*/
+
+function createArray(number) {
+  var newArray = [];
+  for (var counter = 1; counter <= number; counter++) {
+    newArray.push(counter);
+    return newArray;
+  }
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // Question5 | ky8
 /*I have a cat and a dog.
 
 I got them at the same time as kitten/puppy. That was humanYears years ago.
-
 Return their respective ages now as [humanYears,catYears,dogYears]
-
 NOTES:
-
 humanYears >= 1
 humanYears are whole numbers only
 Cat Years
@@ -125,6 +151,24 @@ Dog Years
 15 dog years for first year
 +9 dog years for second year
 +5 dog years for each year after that*/
+const humanYearsCatYearsDogYears = (humanYears) => {
+  let catYears = 0;
+  let dogYears = 0;
+
+  for (let i = 1; i <= humanYears; i++) {
+    if (i === 1) {
+      catYears += 15;
+      dogYears += 15;
+    } else if (i === 2) {
+      catYears += 9;
+      dogYears += 9;
+    } else {
+      catYears += 4;
+      dogYears += 5;
+    }
+  }
+  return [humanYears, catYears, dogYears];
+};
 ////////////////////////////////////////////////////////////////////////////////
 // Question6 | ky8
 /*You're at the zoo... all the meerkats look weird. Something has gone terribly wrong - someone has gone and switched their heads and tails around!
@@ -132,8 +176,12 @@ Dog Years
 Save the animals by switching them back. You will be given an array which will have three values (tail, body, head). It is your job to re-arrange the array so that the animal is the right way round (head, body, tail).
 
 Same goes for all the other arrays/lists that you will get in the tests: you have to change the element positions with the same exact logics
-
 Simples!*/
+
+function fixTheMeerkat(arr) {
+  return arr.reverse();
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // Question7 | ky8
 /*I love you, a little , a lot, passionately ... not at all
@@ -151,6 +199,18 @@ If there are more than 6 petals, you start over with "I love you" for 7 petals, 
 When the last petal was torn there were cries of excitement, dreams, surging thoughts and emotions.
 
 Your goal in this kata is to determine which phrase the girls would say at the last petal for a flower of a given number of petals. The number of petals is always greater than 0.*/
+const phrases = [
+  "I love you",
+  "a little",
+  "a lot",
+  "passionately",
+  "madly",
+  "not at all",
+];
+
+function howMuchILoveYou(n) {
+  return phrases[(n - 1) % phrases.length];
+}
 ////////////////////////////////////////////////////////////////////////////////
 // Question8 | ky8
 /*Sort array by string length
@@ -166,6 +226,9 @@ Your function would return the following array:
 ["Eyes", "Glasses", "Monocles", "Telescopes"]
 
 All of the strings in the array passed to your function will be different lengths, so you will not have to decide how to order multiple strings of the same length.of petals is always greater than 0.*/
+function sortByLength(array) {
+  return array.sort((a, b) => a.length - b.length);
+}
 ////////////////////////////////////////////////////////////////////////////////
 
 // Question9 | ky8 | Find Multiples of a Number

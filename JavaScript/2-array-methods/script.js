@@ -183,4 +183,11 @@ STRINGS METHODS
 29. toString()             Converts the string object to a primitive string value.
 30. valueOf()              Returns the primitive value of the string object.
 
+
+////////////////////////////////////////////////////////////////////////////////////
+GLOBAL JAVASCRIPT FUNCTION
+
+Number(strNumber)          Convert inputs into numeric values
+
+
 */
