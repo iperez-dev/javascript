@@ -9,7 +9,8 @@
 //3-Data Structures and Algorithms
 //replit.com
 ////////////////////////////////////////////////////////////////////////////////
-//return .split("").reverse().join("");
+//return newArr.split("").reverse().join("");
+//return .split("").map((c) => c + c).join("");
 //return x.filter((elem) => elem === "good").length;
 //return String(Number(strNum1) + Number(strNum2));
 //return newArr.push()
@@ -22,42 +23,73 @@
 //return .split(" ").map((item) => `${item.substr(1)}${item[0]}ay`).join(" ");
 //return return str === str.toUpperCase()
 //return Math.floor(Math.random(x) * 10)
+//result newArr.push(Math.pow(2, i));
+//return a.length < b.length ? a + b + a : b + a + b; //ternary operator (? is true)(: else)
+//return Math.floor(n / 2);
+//return let square = (n) => n * n;
+//return string.toUpperCase();
+//return arr.filter((elem, index) => index % 2 === 0))
+//return Math.max(wait + on - cap, 0);
+//return beast[0] === dish[0] && beast[beast.length - 1] === dish[dish.length - 1] ? true : false
+//return stringToNum.parseInt('42')
+//return Math.abs(dadYearsOld - 2 * sonYearsOld);
+//return str.split("!").joint("");
+//factor -> numbers that divide the given number without leaving a remainder ( the factors of 12 are 1, 2, 3, 4, 6, and 12)
+//even   -> Even numbers are integers that are divisible by 2 without leaving a remainder. (2, 4, 6, 8...)
+//odd    -> Integers that are not divisible by 2 without leaving a remainder. (1, 3, 5, 7, 9 ...)
+//return arr.filter((num) => num % 2 !== 0);
+//return arr.reduce((acc, curr) => acc + curr, 0);
+////////////////////////////////////////////////////////////
+// Question34 | ky8 | Double Char
+// Given a string, you have to return a string in which each character (case-sensitive) is repeated once.
 
-/////////////////////////////////////////////////////////////
-// Question29 | ky8 | Parse nice int from char problem
+// Examples (Input -> Output):
+// * "String"      -> "SSttrriinngg"
+// * "Hello World" -> "HHeelllloo  WWoorrlldd"
+// * "1234!_ "     -> "11223344!!__  "
+// Good Luck!
 
-/*
-You ask a small girl,"How old are you?" She always says, "x years old", where x is a random number between 0 and 9.
+const doubleChar = (str) =>
+  str
+    .split("")
+    .map((c) => c + c)
+    .join("");
 
-Write a program that returns the girl's age (0-9) as an integer.
+////////////////////////////////////////////////////////////
+// Question40 | ky8 | Third Angle of a Triangle
+// You are given two interior angles (in degrees) of a triangle.
 
-Assume the test input string is always a valid string. For example, the test input may be "1 year old" or "5 years old". The first character in the string is always a number.
-*/
+// Write a function to return the 3rd.
 
-//input -> function girlAge(x) ->
-//return -> "x year old" (random num 0 <= x <= 9)
-//possible sol -> random number between 0 and 9? | if else
+// Note: only positive integers will be tested.
 
-//example
-function girlAge(x) {
-  let randomNum = Math.floor(Math.random(x) * 10);
-  if (randomNum > 1) {
-    return `${randomNum} years old`;
-  } else {
-    return `${randomNum} year old`;
-  }
+function otherAngle(a, b) {
+  return 180 - (a + b);
 }
 
-//test cases
-console.log(girlAge(0));
+////////////////////////////////////////////////////////////
+// Question41 | ky8 | Remove exclamation marks
+// Write function RemoveExclamationMarks which removes all exclamation marks from a given string.
 
-/////////////////////////////////////////////////////////////
-// Question30 | ky8 | Twice as old
+function RemoveExclamationMarks(str) {
+  return str.split("!").joint("");
+}
 
-/*
-Your function takes two arguments:
+function removeExclamationMarks(s) {
+  return s.replaceAll("!", "");
+}
 
-current father's age (years)
-current age of his son (years)
-Сalculate how many years ago the father was twice as old as his son (or in how many years he will be twice as old). The answer is always greater or equal to 0, no matter if it was in the past or it is in the future.
-*/
+////////////////////////////////////////////////////////////
+// Question25 | ky8 | Removing Elements
+
+// This function should test if the numbers in the array are even or odd. If they are odds, add them into a new array. Then sum all the numbers together to get one final value.
+
+//filter((elem) => elem % 2 !== 0) | reduce((acc, num) => acc + num, 0)
+
+function sumOfOddNumbers(arr) {
+  const oddNumbers = arr.filter((num) => num % 2 !== 0);
+  const sum = oddNumbers.reduce((acc, curr) => acc + curr, 0);
+  return sum;
+}
+
+////////////////////////////////////////////////////////////
