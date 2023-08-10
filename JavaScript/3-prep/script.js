@@ -39,57 +39,43 @@
 //odd    -> Integers that are not divisible by 2 without leaving a remainder. (1, 3, 5, 7, 9 ...)
 //return arr.filter((num) => num % 2 !== 0);
 //return arr.reduce((acc, curr) => acc + curr, 0);
+//return arr.slice().sort((a, b) => a - b);
+//return sortedArr.slice(1, -1).reduce((acc, num) => acc + num, 0);
+//return Math.min(...array) - Math.max(...array) / The spread operator (...arr) is used to expand the elements of the array into individual arguments.
 ////////////////////////////////////////////////////////////
-// Question34 | ky8 | Double Char
-// Given a string, you have to return a string in which each character (case-sensitive) is repeated once.
-
-// Examples (Input -> Output):
-// * "String"      -> "SSttrriinngg"
-// * "Hello World" -> "HHeelllloo  WWoorrlldd"
-// * "1234!_ "     -> "11223344!!__  "
-// Good Luck!
-
-const doubleChar = (str) =>
-  str
-    .split("")
-    .map((c) => c + c)
-    .join("");
-
 ////////////////////////////////////////////////////////////
-// Question40 | ky8 | Third Angle of a Triangle
-// You are given two interior angles (in degrees) of a triangle.
-
-// Write a function to return the 3rd.
-
-// Note: only positive integers will be tested.
-
-function otherAngle(a, b) {
-  return 180 - (a + b);
-}
-
 ////////////////////////////////////////////////////////////
-// Question41 | ky8 | Remove exclamation marks
-// Write function RemoveExclamationMarks which removes all exclamation marks from a given string.
 
-function RemoveExclamationMarks(str) {
-  return str.split("!").joint("");
-}
+//Question43 | ky8 | Sum without highest and lowest number
 
-function removeExclamationMarks(s) {
-  return s.replaceAll("!", "");
-}
+// Task
+// Sum all the numbers of a given array ( cq. list ), except the highest and the lowest element ( by value, not by index! ).
 
-////////////////////////////////////////////////////////////
-// Question25 | ky8 | Removing Elements
+// The highest or lowest element respectively is a single element at each edge, even if there are more than one with the same value.
 
-// This function should test if the numbers in the array are even or odd. If they are odds, add them into a new array. Then sum all the numbers together to get one final value.
+// Mind the input validation.
 
-//filter((elem) => elem % 2 !== 0) | reduce((acc, num) => acc + num, 0)
+// Example
+// { 6, 2, 1, 8, 10 } => 16
+// { 1, 1, 11, 2, 3 } => 6
+// Input validation
+// If an empty value ( null, None, Nothing etc. ) is given instead of an array, or the given array is an empty list or a list with only 1 element, return 0.
 
-function sumOfOddNumbers(arr) {
-  const oddNumbers = arr.filter((num) => num % 2 !== 0);
-  const sum = oddNumbers.reduce((acc, curr) => acc + curr, 0);
+// .sort().slice(1, arr.length ) | reduce((acc, num) => acc + num)
+
+let arr = [3, 5, 7, 1, 9];
+
+function sumArr(arr) {
+  const sortedArr = arr.slice().sort((a, b) => a - b);
+  const sum = sortedArr.slice(1, -1).reduce((acc, num) => acc + num, 0);
+
   return sum;
 }
+
+// test-cases
+console.log(sumArr([3, 5, 7, 1, 9]), 15);
+console.log(sumArr([1, 5, 9, 1, 9]), 15);
+console.log(sumArr([9, 5, 9, 1, 9]), 23);
+console.log(sumArr([9, 5, 9, 1, 10, 4, 3, 71, 54, 9]), 103);
 
 ////////////////////////////////////////////////////////////

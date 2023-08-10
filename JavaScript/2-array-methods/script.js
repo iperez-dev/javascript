@@ -34,6 +34,16 @@ console.log(combinedArray); // Output: [1, 2, 3, 4]
 const numbers = [1, 2, 3, 4, 5];
 const slicedArray = numbers.slice(1, 4);
 console.log(slicedArray); // Output: [2, 3, 4]
+In this example, the slice() method is used to extract a subarray from the original array. It starts at index 1 (inclusive) and goes up to index 4 (exclusive), so it includes elements at indexes 1, 2, and 3.
+
+6. split('')       Split a string into an array of substrings based on a specified separator.
+const sentence = "Hello, how are you today?";
+const words = sentence.split(" ");
+console.log(words); // Output: ["Hello,", "how", "are", "you", "today?"]
+
+const fruits = "apple,banana,orange";
+const fruitArray = fruits.split(",");
+console.log(fruitArray); // Output: ["apple", "banana", "orange"]
 
 7. splice()         Adds or removes elements from an array at a specified index
 const fruits = ["apple", "banana", "orange"];
@@ -153,41 +163,3 @@ const isNumbersArray = Array.isArray(numbers);
 console.log(isNumbersArray); // Output: true
 
 
-
-////////////////////////////////////////////////////////////////////////////////////
-STRINGS METHODS
-
-1. length                  Returns the number of characters in a string.
-2. charAt()                Returns the character at the specified index in the string.
-4. concat()                Concatenates two or more strings and returns a new string.
-5. includes()              Checks if a substring exists within the string and returns true or false.
-6. indexOf()               Returns the index of the first occurrence of a specified value in the string
-7. lastIndexOf()           Returns the index of the last occurrence of a specified value in the string
-8. match()                 Searches the string for a match against a regular expression and returns an array of matches.
-9. search()                Searches the string for a match against a regular expression and returns the index of the first match
-10. slice()                Extracts a portion of a string and returns a new string without modifying the original string.
-11. split('')              Splits the string into an array of substrings (split into letters)
-    split(' ')             Splits the string into an array of substrings (split into words)
-12. substr()               Extracts a specified number of characters from a string, starting from a specified index.
-13. substring()            Extracts characters from a string between the specified start and end indexes.
-14. toLowerCase()          Converts the string to lowercase.
-15. toUpperCase()          Converts the string to uppercase.
-16. trim()                 Removes leading and trailing whitespace from the string.
-17. startsWith()           Checks if the string starts with the specified substring and returns true or false.
-18. endsWith()             Checks if the string ends with the specified substring and returns true or false.
-19. repeat()               Returns a new string consisting of the original string repeated a specified number of times.
-20. replace()              Replaces occurrences of a substring with a new substring in the string.
-21. localeCompare()        Compares two strings in the current locale and returns a numeric value.
-23. padStart()             Pads the start of the string with a specified character(s) until it reaches the target length.
-24. padEnd()               Pads the end of the string with a specified character(s) until it reaches the target length.
-29. toString()             Converts the string object to a primitive string value.
-30. valueOf()              Returns the primitive value of the string object.
-
-
-////////////////////////////////////////////////////////////////////////////////////
-GLOBAL JAVASCRIPT FUNCTION
-
-Number(strNumber)          Convert inputs into numeric values
-
-
-*/
