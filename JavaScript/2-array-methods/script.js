@@ -211,6 +211,8 @@ return arr.reduce((acc, curr) => acc + curr, 0);
 return arr.slice().sort((a, b) => a - b);
 return sortedArr.slice(1, -1).reduce((acc, num) => acc + num, 0);
 return Math.min(...array) - Math.max(...array) / The spread operator (...arr) is used to expand the elements of the array into individual arguments.
+return Object.keys(object); / used to retrieve an array of all property names (keys) of a given object.
+return Math.random() / random floating-point number between 0 (inclusive) and 1 (exclusive)
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
