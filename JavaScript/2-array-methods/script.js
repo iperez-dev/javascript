@@ -220,36 +220,25 @@ return Math.random() / random floating-point number between 0 (inclusive) and 1 
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
-Question43 | ky8 | Sum without highest and lowest number
-
-Task
-Sum all the numbers of a given array ( cq. list ), except the highest and the lowest element ( by value, not by index! ).
-
-The highest or lowest element respectively is a single element at each edge, even if there are more than one with the same value.
-
-Mind the input validation.
-
-Example
-{ 6, 2, 1, 8, 10 } => 16
-{ 1, 1, 11, 2, 3 } => 6
-Input validation
-If an empty value ( null, None, Nothing etc. ) is given instead of an array, or the given array is an empty list or a list with only 1 element, return 0.
-
-.sort().slice(1, arr.length ) | reduce((acc, num) => acc + num)
-
-let arr = [3, 5, 7, 1, 9];
-
-function sumArr(arr) {
-  const sortedArr = arr.slice().sort((a, b) => a - b);
-  const sum = sortedArr.slice(1, -1).reduce((acc, num) => acc + num, 0);
-
-  return sum;
-}
-
-test-cases
-console.log(sumArr([3, 5, 7, 1, 9]), 15);
-console.log(sumArr([1, 5, 9, 1, 9]), 15);
-console.log(sumArr([9, 5, 9, 1, 9]), 23);
-console.log(sumArr([9, 5, 9, 1, 10, 4, 3, 71, 54, 9]), 103);
 */
 ////////////////////////////////////////////////////////////
+
+// ternary operator
+
+// function calc(color) {
+//   if (color === "green") {
+//     return "Ivan";
+//   } else if (color === "red") {
+//     return "Abdiel";
+//   } else {
+//     return "Sofia";
+//   }
+// }
+
+function calc(color) {
+  return color === "green" ? "Ivan" : color === "red" ? "Abdiel" : "Sofia";
+}
+
+console.log(calc("green"), "Ivan");
+console.log(calc("red"), "Abdiel");
+console.log(calc("yellow"), "Sofia");

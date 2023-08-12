@@ -15,6 +15,8 @@ String ('Hello')
 Boolean (true or false)
 Undefined (has not been assigned a value | declared but not assigned)
 Null ( has been assigned the value of null | intentional absence of a value.)
+
+
 2-Non-Primitives
 Functions
 Loops
@@ -25,23 +27,29 @@ Objects
 TEMPLATES LITERALS 
 let fName = 'Ivan'
 let lName = 'Perez'
-`Hello, my name is ${fName} ${lName}`   `${}${}${}``${}`
+`Hello, my name is ${fName} ${lName}`   `${}       ${}${}``${}`
+
+`Hello, my name is Ivan Perez`
 
 
 LOGICAL OPERATORS
 x = 3 | assigment
-x == 8 false | value
-x === "3" false | value + type
-x != 8 true | is not
-x !== 3 false 
-x > 8 false | greater than
-x < 8 true | less than
-x >= 8 false | greater or equal
-x <= 8 true | less than or equal
+3 == 8 false | value
+3 === "3" false | value + type
+3 != 8 true | is not
+3 !== 3 false 
+3 > 8 false | greater than
+3 < 8 true | less than
+3 >= 8 false | greater or equal
+3 <= 8 true | less than or equal
+
+
+
+
 
 
 CONDITIONAL SYNTAX (if | else if | else)
-let loveCoding = true
+let loveCoding = false
 let loveJavaScript = true
 
 if(loveCoding === true){
@@ -62,17 +70,24 @@ if(loveCoding === true && loveJavaScript === true){
     console.log('I better find another job')
 }
 
+
 MULTIPLE CONDITIONALS
 && and (loveCoding === true && loveJavaScript === true)
 || or  (loveCoding === true || loveJavaScript === true)
 
+TERNARY OPERATORS
 
-document.querySelector('#name')                                         //selects element by id
-document.querySelector('.name')                                         //selects element by class
+loveCoding === true ? 'JavaScript is cool' :  'I better find another job'
+
+
+DOM MANIPULATION
+document.querySelector('#select') 
+document.getElementById('select')                                       //selects element by id
+document.querySelector('.lastName')                                     //selects element by class
 document.querySelectorAll('.name')                                      //selects all alement with the same class
-document.querySelector('#name').addEventListener('click')               //adds an event listener to all elements with the id name
+document.querySelector('#button').addEventListener('click')             //adds an event listener to all elements with the id name
 document.querySelector('#name').value                                   //grabs the value of the element with the id of name
-document.querySelector('#name').innerText = `${text}`                   //adds text to the element with the id of name
+document.querySelector('#name').innerText = `${input}`                   //adds text to the element with the id of name
 document.querySelector('#name').style.display = "none"                  //(inline CSS) display = none to the element with the id of name
 const name = document.querySelector('#name')                            //stores value of element with #name in variable name
 name.classList.add("hidden")                                            //(external CSS) adds class hidden to name
@@ -91,10 +106,18 @@ function run(){
 -----------------------------------------------------------------------------------------------
 FUNCTIONS
 -----------------------------------------------------------------------------------------------
-Function Declaration
-Function Call
-Parameter
-Arguments
+const name = 'Rocio'
+
+function name(word){
+    console.log(word)
+}
+name('Sofia')
+
+
+1-Function Declaration
+2-Function Call
+3-Parameter
+4-Arguments
 
 
 DIFFERENCE B/
@@ -123,7 +146,6 @@ name('hello', 'world')
 
 
 ARROW FUNCTIONS
-
 let name = (parameters) => function body
 name(arguments)
 
@@ -180,6 +202,10 @@ FOR LOOP (The "for" loop is suitable when you know the number of iterations in a
 for ([initialExpression]; [condition]; [incrementExpression]){
     statement
 }
+
+1
+2
+3
 
 Ex1:
 for (let i = 1; i < 5; i++){
@@ -294,6 +320,8 @@ console.log( newArr.length)
 
 ARRAY ITERATION (FOR LOOP)
 let bestColors = ['green', 'blue', 'yellow', 'black']
+
+
 for( i = 0; i < bestColors.length; i++){
     console.log( bestColors[i] )
 }
@@ -301,6 +329,7 @@ for( i = 0; i < bestColors.length; i++){
 
 ARRAY ITERATION (FOR EACH)
 let bestColors = ['green', 'blue', 'yellow', 'black']
+
 bestColors.forEach((elem,indx) => console.log(elem))
 
 
@@ -332,12 +361,18 @@ console.log(evenNumbers);
 
 -----------------------------------------------------------------------------------------------
 OBJECTS 
------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+- function
+- loop
+- array 
+- object
+
 - Objects are a collection of variables and functions
-- Objects represent the attributes and behaviors of something used in a program
 - Objects variables are called properties
 - Objects functions are called methods
+- Objects represent the attributes and behaviors of something used in a program
 - Dot notation is used to add properties and methods
+- Key : Value -> Pair
 
 
 PROPERTIES
@@ -350,6 +385,10 @@ stopwatch.tellTime = function(time){
     console.log(`The current time is ${time}. )
 }
 stopwatch.tellTime(stopwatch.currentTime)
+
+
+
+
 
 Ex1
 LITERAL NOTATION
@@ -379,12 +418,15 @@ phone.tellBrand(phone.brand)
 
 
 NEW SYNTAX
+
 const person = {
   name: "John",
   age: 30,
   gender: "male",
   occupation: "engineer"
 };
+
+
 
 const person = {
   name: "John",
@@ -439,14 +481,22 @@ console.log(person.age); // Output: 30
 
 Ex2: Add and Modify Object Properties
 Create an object representing a car with 'make' and 'model' properties. Then, add a new 'year' property to the car and modify the 'model' property.
+
+
 const car = {
   make: "Toyota",
   model: "Camry"
+  year: 2022
 };
+
+
 
 car.year = 2022;
 car.model = "Corolla";
 console.log(car); // Output: { make: "Toyota", model: "Corolla", year: 2022 }
+
+
+
 
 Ex:3 Calculate Object Property
 Create an object representing a rectangle with 'width' and 'height' properties. Then, calculate and store the 'area' property by multiplying 'width' and 'height'.
@@ -460,3 +510,5 @@ console.log(rectangle.area); // Output: 50
 */
 
 // Ex2: Calculate and print the sum of even numbers from 1 to 10.
+
+// Write a function that takes the width and height of a rectangle as parameters and returns the area.

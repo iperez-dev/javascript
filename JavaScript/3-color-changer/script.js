@@ -1,4 +1,5 @@
 // document.getElementById("btn").addEventListener("click", changeColor);
+
 // let index = 0;
 
 // function changeColor() {
