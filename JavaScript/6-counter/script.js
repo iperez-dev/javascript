@@ -1,13 +1,21 @@
-// document.querySelector("#increase").addEventListener("click", () => {
-//   changeCount(1);
-// });
+const decrementBtn = document.getElementById("decrement");
+const incrementBtn = document.getElementById("increment");
+const countSpan = document.getElementById("count");
 
-// document.querySelector("#decrease").addEventListener("click", () => {
-//   changeCount(-1);
-// });
+let count = 0;
 
-// let count = 0;
-// changeCount = (number) => {
-//   count += number;
-//   document.querySelector("#count").textContent = count;
-// };
+function updateCount() {
+  countSpan.innerHTML = count;
+}
+
+decrementBtn.addEventListener("click", () => {
+  count--;
+  updateCount();
+});
+
+incrementBtn.addEventListener("click", () => {
+  count++;
+  updateCount();
+});
+
+updateCount();

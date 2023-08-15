@@ -16,11 +16,10 @@ Boolean (true or false)
 Undefined (has not been assigned a value | declared but not assigned)
 Null ( has been assigned the value of null | intentional absence of a value.)
 
-
 2-Non-Primitives
 Functions
 Loops
-Arrays
+Arrays    
 Objects
 
 

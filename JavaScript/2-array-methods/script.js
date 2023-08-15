@@ -213,32 +213,7 @@ return sortedArr.slice(1, -1).reduce((acc, num) => acc + num, 0);
 return Math.min(...array) - Math.max(...array) / The spread operator (...arr) is used to expand the elements of the array into individual arguments.
 return Object.keys(object); / used to retrieve an array of all property names (keys) of a given object.
 return Math.random() / random floating-point number between 0 (inclusive) and 1 (exclusive)
-////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////
-
+return Object.keys(quotes) / returns an array from the keys of the object quotes
+return authors[Math.floor(Math.random() * authors.length)];
 */
 ////////////////////////////////////////////////////////////
-
-// ternary operator
-
-// function calc(color) {
-//   if (color === "green") {
-//     return "Ivan";
-//   } else if (color === "red") {
-//     return "Abdiel";
-//   } else {
-//     return "Sofia";
-//   }
-// }
-
-function calc(color) {
-  return color === "green" ? "Ivan" : color === "red" ? "Abdiel" : "Sofia";
-}
-
-console.log(calc("green"), "Ivan");
-console.log(calc("red"), "Abdiel");
-console.log(calc("yellow"), "Sofia");

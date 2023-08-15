@@ -1,26 +1,29 @@
-// document.getElementById("btn_quote").addEventListener("click", genQuote);
-// const quote = document.getElementById("quote");
-// const author = document.getElementById("author");
+const quotes = [
+  "The only limit to our realization of tomorrow will be our doubts of today.",
+  "Success is not the key to happiness. Happiness is the key to success.",
+  "The best way to predict the future is to create it.",
+  "Your time is limited, don't waste it living someone else's life.",
+  "It always seems impossible until it's done.",
+  "In the garden of life, resilience is the most beautiful flower that never fades.",
+  "Wisdom is the compass that guides us through the labyrinth of uncertainty.",
+  "Stars shine not because of their perfection, but because of their persistent flicker in the darkest of skies.",
+  "Embrace change as the sculptor of your better self, molding you with each twist of fate.",
+  "Kindness is the language that echoes in the hearts of humanity, transcending all barriers.",
+  "The pages of yesterday may be written, but the chapters of tomorrow are still ours to author.",
+  "Happiness dances to the rhythm of gratitude, and its melody is found in the simplest of moments.",
+  "The mirror of self-reflection shows us who we are, but our actions paint the masterpiece of who we can become.",
+];
 
-// function genQuote() {
-//   let quotes = {
-//     " Jules Renard":
-//       "The truly free man is the one who can turn down an invitation to dinner without giving an excuse.",
-//     " Albert Einstein":
-//       "Our task must be to free ourselves... by widening our circle of compassion to embrace all living creatures and the whole of nature and its beauty.",
-//     "Lana Del Rey": `“Who are you?
-//         Are you in touch with all of your darkest fantasies?
-//         Have you created a life for yourself where you can experience them?
-//         I have. I am fucking crazy.
-//         But I am free.”`,
-//     "Alysha Speer": `You never really know what's coming. A small wave, or maybe a big one. All you can really do is hope that when it comes, you can surf over it, instead of drown in its monstrosity.`,
-//     "Aaron Lauritsen": `The struggles we endure today will be the ‘good old days’ we laugh about tomorrow.`,
-//   };
-//   let authors = Object.keys(quotes);
-//   let randomAuthor = authors[Math.floor(Math.random() * authors.length)];
+const quoteElement = document.getElementById("quote");
+const generateButton = document.getElementById("generateButton");
 
-//   let randomQuote = quotes[randomAuthor];
+generateButton.addEventListener("click", generateRandomQuote);
 
-//   quote.innerText = randomQuote;
-//   author.innerText = randomAuthor;
+function generateRandomQuote() {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  const randomQuote = quotes[randomIndex];
+  quoteElement.textContent = randomQuote;
 }
+
+// Initial quote generation
+generateRandomQuote();
