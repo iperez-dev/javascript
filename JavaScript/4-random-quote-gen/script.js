@@ -1,4 +1,4 @@
-const quotes = [
+const quote = [
   "The only limit to our realization of tomorrow will be our doubts of today.",
   "Success is not the key to happiness. Happiness is the key to success.",
   "The best way to predict the future is to create it.",
@@ -13,17 +13,16 @@ const quotes = [
   "Happiness dances to the rhythm of gratitude, and its melody is found in the simplest of moments.",
   "The mirror of self-reflection shows us who we are, but our actions paint the masterpiece of who we can become.",
 ];
+//Pseudo-code
+//select btn-generate-quote -> .eventListener -> function randomQuote
+document
+  .getElementById("generateButton")
+  .addEventListener("click", randomQuote);
 
-const quoteElement = document.getElementById("quote");
-const generateButton = document.getElementById("generateButton");
-
-generateButton.addEventListener("click", generateRandomQuote);
-
-function generateRandomQuote() {
-  const randomIndex = Math.floor(Math.random() * quotes.length);
-  const randomQuote = quotes[randomIndex];
-  quoteElement.textContent = randomQuote;
+//function randomQuote  Math.random() Math.floor -> generate a randomQuote -> innnerHTML id="quote" -> call function
+function randomQuote() {
+  const randomIndex = Math.floor(Math.random() * quote.length);
+  const randomQuote = quote[randomIndex];
+  document.getElementById("quote").innerHTML = randomQuote;
 }
-
-// Initial quote generation
-generateRandomQuote();
+randomQuote();

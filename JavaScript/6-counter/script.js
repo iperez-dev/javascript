@@ -1,21 +1,17 @@
+//////////////////////////////////////////////////////
+
 const decrementBtn = document.getElementById("decrement");
 const incrementBtn = document.getElementById("increment");
-const countSpan = document.getElementById("count");
+const countText = document.getElementById("count");
 
-let count = 0;
+//decrement
+decrementBtn.addEventListener("click", decrement);
 
-function updateCount() {
-  countSpan.innerHTML = count;
+function decrement() {
+  countText.innerHTML--;
 }
 
-decrementBtn.addEventListener("click", () => {
-  count--;
-  updateCount();
-});
-
-incrementBtn.addEventListener("click", () => {
-  count++;
-  updateCount();
-});
-
-updateCount();
+incrementBtn.addEventListener("click", increment);
+function increment() {
+  countText.innerHTML++;
+}
