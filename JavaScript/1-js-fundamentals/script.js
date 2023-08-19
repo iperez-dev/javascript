@@ -107,10 +107,26 @@ FUNCTIONS
 -----------------------------------------------------------------------------------------------
 const name = 'Rocio'
 
+
+
+
+
+
+
+
 function name(word){
     console.log(word)
 }
+
+
 name('Sofia')
+
+
+
+
+
+
+
 
 
 1-Function Declaration

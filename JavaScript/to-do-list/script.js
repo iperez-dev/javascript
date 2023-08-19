@@ -19,9 +19,3 @@ function toggleTask(event) {
   const clickedTask = event.target;
   clickedTask.classList.toggle("completed");
 }
-
-taskInput.addEventListener("keypress", function (event) {
-  if (event.key === "Enter") {
-    addTask();
-  }
-});
