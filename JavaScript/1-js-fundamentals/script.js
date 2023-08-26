@@ -390,9 +390,22 @@ OBJECTS
 - Key : Value -> Pair
 
 
+
+
+
+LITERAL NOTATION
+let phone = {}
+
+
 PROPERTIES
 let stopwatch = {}
 stopwatch.currentTime = 12
+
+let stopwatch = {
+  currentTime: 12
+}
+
+
 
 METHODS
 let stopwatch = {}
@@ -403,11 +416,6 @@ stopwatch.tellTime(stopwatch.currentTime)
 
 
 
-
-
-Ex1
-LITERAL NOTATION
-let phone = {}
 
 PROPERTIES
 phone.shape = 'square'
@@ -432,14 +440,24 @@ phone.tellBrand = function(brand){
 phone.tellBrand(phone.brand)
 
 
+
+
+
+
+
+
 NEW SYNTAX
 
-const person = {
+const person = { 
   name: "John",
   age: 30,
   gender: "male",
   occupation: "engineer"
+  city : 'Miami'
 };
+
+person.name = ''
+
 
 
 
