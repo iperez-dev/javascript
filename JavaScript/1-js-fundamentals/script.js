@@ -377,10 +377,6 @@ console.log(evenNumbers);
 -----------------------------------------------------------------------------------------------
 OBJECTS 
 ----------------------------------------------------------------------------------------------
-- function
-- loop
-- array 
-- object
 
 - Objects are a collection of variables and functions
 - Objects variables are called properties
@@ -388,10 +384,6 @@ OBJECTS
 - Objects represent the attributes and behaviors of something used in a program
 - Dot notation is used to add properties and methods
 - Key : Value -> Pair
-
-
-
-
 
 LITERAL NOTATION
 let phone = {}
@@ -405,17 +397,12 @@ let stopwatch = {
   currentTime: 12
 }
 
-
-
 METHODS
 let stopwatch = {}
 stopwatch.tellTime = function(time){
     console.log(`The current time is ${time}. )
 }
 stopwatch.tellTime(stopwatch.currentTime)
-
-
-
 
 PROPERTIES
 phone.shape = 'square'
@@ -440,12 +427,6 @@ phone.tellBrand = function(brand){
 phone.tellBrand(phone.brand)
 
 
-
-
-
-
-
-
 NEW SYNTAX
 
 const person = { 
@@ -455,11 +436,6 @@ const person = {
   occupation: "engineer"
   city : 'Miami'
 };
-
-person.name = ''
-
-
-
 
 const person = {
   name: "John",
@@ -471,8 +447,15 @@ const person = {
 
 person.sayHello(); // Output: "Hello, my name is John."
 
+person.lastName = 'Perez'
+person.age = 35
+person.name
 
+
+-----------------------------------------------------------------------
 CONSTRUCTORS
+-----------------------------------------------------------------------
+
 function MakeCar(carMake, carModel, carColor, numOfDoors){
     this.make = carMake
     this.model = carModel
@@ -485,11 +468,59 @@ function MakeCar(carMake, carModel, carColor, numOfDoors){
         alert(`Locked ${this.doors} doors!`)
     }
 }
+
+
+
+
+
 let hondaCivic = new MakeCar('Honda', 'Civic', 'Silver', 4)
 let teslaRoadster = new MakeCar('Tesla', 'Roadster', 'Red', 2)
 
 
+
+
+
+function CallFriends(name, age, country, sayName){
+  this.name = name
+  this.age = age
+  this.country = country
+  this.sayName = function(){
+    alert(`My name is this.name`)
+  }
+}
+
+
+
+
+let rocio = new CallFriend('Rocio', 30, 'Cuba', sayName)
+let susana = new CallFriend('Susana', 53, 'Congo', sayName)
+
+
+
+
+
+
+
+-----------------------------------------------------------------------
+CLASES
+-----------------------------------------------------------------------
+
+class CallFriends {
+  constructor ( name, age, country){
+    this.name = name;
+    this.age = age;
+    this.country = country;
+  }
+}
+
+let rocio = new CallFriends ('Rocio', 30, 'Cuba');
+let susana = new CallFriends ('Susana', 53, 'Congo');
+
+
+-----------------------------------------------------------------------
 PROTOTYPAL INHERITANCE
+-----------------------------------------------------------------------
+
 - A prototype is another object that is used as a fallback source of properties 
 
 let teslaRoadster = new MakeCar('Testla', 'Roadster', 'Red', 2)
@@ -523,11 +554,9 @@ const car = {
 };
 
 
-
 car.year = 2022;
 car.model = "Corolla";
 console.log(car); // Output: { make: "Toyota", model: "Corolla", year: 2022 }
-
 
 
 
@@ -540,8 +569,85 @@ const rectangle = {
 rectangle.area = rectangle.width * rectangle.height;
 
 console.log(rectangle.area); // Output: 50
+
+
+class Profession {
+  constructor(name, salary, years) {
+    this.name = name;
+    this.salary = salary;
+    this.years = years;
+    this.description = function () {
+      console.log(
+        `${this.name} takes ${this.years} of study, and it pays $${this.salary} dollars`
+      );
+    };
+  }
+}
+
+let teacher = new Profession("teacher", 60000, "4years");
+let doctor = new Profession("doctor", 400000, "12years");
+let softwareDeveloper = new Profession("softwareDeveloper", 107422, "2years");
+
+
+==============================================================================================
+Object Oriented Programming (OOP) 
+==============================================================================================
+Object-Oriented Programming (OOP) is a programming paradigm that revolves around the concept of "objects," which can be thought of as instances of classes. This paradigm is based on four main principles, often referred to as the four pillars of OOP: Encapsulation, Abstraction, Inheritance, and Polymorphism.
+------------------------------------------------------------------------------------------
+1 - Encapsulation (classes / properties and methods)
+Definition: Encapsulation is the bundling of data (properties) and the methods that operate on the data into a single unit (object).
+Why: It helps in hiding the internal details of how an object works and only exposes what is necessary. This makes the code more modular, secure, and easy to understand. 
+------------------------------------------------------------------------------------------
+2 - Abstraction (getter / private properties)
+Definition: Abstraction involves simplifying complex systems by modeling classes based on the essential properties and behaviors they possess.
+Why: It provides a clear and simplified interface for interacting with objects, allowing users to focus on what an object does rather than how it achieves its functionality.
+------------------------------------------------------------------------------------------
+3 - Inheritance (extent / super)
+Definition: Inheritance is a mechanism that allows a new class (subclass or derived class) to inherit properties and behaviors from an existing class (superclass or base class).
+Why: It promotes code reuse, allowing you to create a new class based on an existing class, inheriting its features and extending or modifying them as needed.
+------------------------------------------------------------------------------------------
+4 - Polymorphism
+Definition: Polymorphism allows objects of different types to be treated as objects of a common type. It enables a single interface to represent different types of objects.
+Why: It promotes flexibility and extensibility in the code. A function or method can work with objects of multiple types, making the code more versatile.
+------------------------------------------------------------------------------------------
+
+Ex1: Web Developer Career Paths
+DATA
+1 - Front-End Developer
+Description: A Front-End Developer specializes in building the client-side portion of web applications, focusing on user interface and user experience.
+Core Technology: HTML CSS, JavaScript, 
+Frameworks: React, Angular, Vue
+API Integration: REST APIs, GraphQL
+Salary: $80.000 - $100.000
+
+2 - Back-End Developer
+A Back-End Developer focuses on the server-side development, handling databases, server logic, and ensuring the smooth functioning of web applications.
+Core Technology: Node, Python, PHP, C#, Ruby, APIs
+Frameworks: Express.js (Node.js), Django (Python), Ruby on Rails (Ruby)
+Database: MySQL, Postgre, MongoDB
+Salary: $80.000 - $120.000
+
+3 - Freelance Web Developer
+Description: A Freelance Web Developer is a self-employed professional who offers web development services on a project basis
+Core Technology: Wordpress, Gatspy, Wix, Webflow, SEO
+Skills: Marketing, Project Management, Client Communication, Business Development
+Salary: $50.000 - $100.000
+
+4 - Mobile Developer
+Description: A Mobile Developer creates applications for mobile devices, such as smartphones and tablets.
+Core Technology: Java, Kotlin for Android; Swift, Objective-C for iOS
+Frameworks: React Native, Flutter
+Salary: $80,000 to $120,000
+
+5 - IoT Developer
+Description: An IoT Developer specializes in creating software for Internet of Things (IoT) devices, facilitating communication and data exchange among connected devices.
+Core Technology: C, C++, Python 
+Frameworks: IoT platforms (e.g., AWS IoT, Azure IoT)
+Salary: $80,000 to $120,000
+
+
+
+
+
+
 */
-
-// Ex2: Calculate and print the sum of even numbers from 1 to 10.
-
-// Write a function that takes the width and height of a rectangle as parameters and returns the area.

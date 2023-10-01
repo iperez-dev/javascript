@@ -25,36 +25,29 @@
         <!-- player1 -->
         <section class="player1-container">
           <div class="player1-title">
-            <h2>Player 1</h2>
-            <button type="button" class="btn btn-lg btn-dark" id="ask-btn1">
+            <h2 id="selectPlayer">Player 1</h2>
+            <button
+              type="button"
+              class="btn btn-lg btn-outline-secondary"
+              id="ask-btn1"
+            >
               Ask Card
             </button>
-            <button type="button" class="btn btn-lg btn-dark" id="skip-btn1">
+            <button
+              type="button"
+              class="btn btn-lg btn-outline-secondary"
+              id="skip-btn1"
+            >
               Skip
             </button>
+            <h4 class="display-value" id="displayValue"></h4>
           </div>
-          <div class="img1-container">
-            <img src="" alt="" class="display-card1" id="display-card1" />
-          </div>
+          <div class="img1-container" id="ImgContainer"></div>
         </section>
-
-        <!-- player2 -->
-        <section class="player2-container">
-          <div class="player2-title">
-            <h2>Player 2</h2>
-            <button type="button" class="btn btn-lg btn-dark" id="ask-btn2">
-              Ask Card
-            </button>
-            <button type="button" class="btn btn-lg btn-dark" id="skip-btn2">
-              Skip
-            </button>
-          </div>
-          <div class="img2-container">
-            <img src="" alt="" class="display-card2" id="display-card2" />
-          </div>
-        </section>
+        <h4 class="winner" id="winner">Player 1 Wins</h4>
       </div>
     </section>
+
     <script src="/black-jack-api/script.js"></script>
   </body>
 </html>

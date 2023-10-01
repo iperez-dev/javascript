@@ -1,3 +1,4 @@
+/* global variables */
 * {
   margin: 0;
   padding: 0;
@@ -17,7 +18,7 @@ h6 {
   color: #fff;
 }
 img {
-  height: 25vh;
+  height: 35vh;
 }
 h1 {
   font-size: 55px;
@@ -25,7 +26,7 @@ h1 {
   text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.8);
 }
 h2 {
-  font-size: 25px;
+  font-size: 45px;
   margin: 30px;
 }
 .body-container {
@@ -45,7 +46,7 @@ h2 {
 }
 /* title */
 .title-container {
-  /* border: 1px solid red; */
+  border: 1px solid red;
   height: 10%;
   display: flex;
   align-items: center;
@@ -56,21 +57,35 @@ h2 {
   margin: 20px;
 }
 /* players */
-.player1-container,
-.player2-container {
-  height: 50%;
-  /* border: 1px solid red; */
+.player1-container {
+  height: 80%;
+  border: 1px solid red;
   display: flex;
 }
-.player1-title,
-.player2-title {
-  /* border: 1px solid red; */
+.player1-title {
+  border: 1px solid red;
   flex: 1;
   margin: auto;
 }
-.img1-container,
-.img2-container {
+.img1-container {
   flex: 2;
-  /* border: 1px solid red; */
+  border: 1px solid red;
   margin: auto;
+}
+.btn-lg {
+  padding: 20px 60px;
+}
+.btn-outline-secondary {
+  color: #fff;
+  border: 1px solid #fff;
+}
+.btn-outline-secondary:hover {
+  background-color: #1818182e;
+}
+.display-value {
+  padding: 40px;
+  font-size: 40px;
+}
+.winner {
+  font-size: 40px;
 }
