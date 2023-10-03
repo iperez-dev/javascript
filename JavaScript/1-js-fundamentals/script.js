@@ -598,9 +598,12 @@ Object-Oriented Programming (OOP) is a programming paradigm that revolves around
 Definition: Encapsulation is the bundling of data (properties) and the methods that operate on the data into a single unit (object).
 Why: It helps in hiding the internal details of how an object works and only exposes what is necessary. This makes the code more modular, secure, and easy to understand. 
 ------------------------------------------------------------------------------------------
-2 - Abstraction (getter / private properties)
+2 - Abstraction (getter / _private properties)
 Definition: Abstraction involves simplifying complex systems by modeling classes based on the essential properties and behaviors they possess.
 Why: It provides a clear and simplified interface for interacting with objects, allowing users to focus on what an object does rather than how it achieves its functionality.
+
+Getter methods:
+Special type of method in a class that are used to retrieve the value of a specific property
 ------------------------------------------------------------------------------------------
 3 - Inheritance (extent / super)
 Definition: Inheritance is a mechanism that allows a new class (subclass or derived class) to inherit properties and behaviors from an existing class (superclass or base class).
@@ -613,41 +616,154 @@ Why: It promotes flexibility and extensibility in the code. A function or method
 
 Ex1: Web Developer Career Paths
 DATA
-1 - Front-End Developer
+Name: Software Developer
+General Description: Software developers design, build, and maintain software and applications.
+
+Name: Front-End Developer
 Description: A Front-End Developer specializes in building the client-side portion of web applications, focusing on user interface and user experience.
-Core Technology: HTML CSS, JavaScript, 
+Core Technology: HTML, CSS, JavaScript, 
 Frameworks: React, Angular, Vue
 API Integration: REST APIs, GraphQL
-Salary: $80.000 - $100.000
+Salary: $100.000
 
-2 - Back-End Developer
-A Back-End Developer focuses on the server-side development, handling databases, server logic, and ensuring the smooth functioning of web applications.
+Name: Back-End Developer
+Description: A Back-End Developer focuses on the server-side development, handling databases, server logic, and ensuring the smooth functioning of web applications.
 Core Technology: Node, Python, PHP, C#, Ruby, APIs
 Frameworks: Express.js (Node.js), Django (Python), Ruby on Rails (Ruby)
 Database: MySQL, Postgre, MongoDB
-Salary: $80.000 - $120.000
+Salary: $120.000
 
-3 - Freelance Web Developer
+Name: Freelance Web Developer
 Description: A Freelance Web Developer is a self-employed professional who offers web development services on a project basis
-Core Technology: Wordpress, Gatspy, Wix, Webflow, SEO
+Core Technology: HTML, CSS, JavaScript, Wordpress, Wix, Webflow, SEO
+Frameworks: React, Angular, Vue
 Skills: Marketing, Project Management, Client Communication, Business Development
-Salary: $50.000 - $100.000
+Salary: $70.000
 
-4 - Mobile Developer
+Name: Mobile Developer
 Description: A Mobile Developer creates applications for mobile devices, such as smartphones and tablets.
 Core Technology: Java, Kotlin for Android; Swift, Objective-C for iOS
 Frameworks: React Native, Flutter
-Salary: $80,000 to $120,000
+Salary: $120,000
 
-5 - IoT Developer
+Name: IoT Developer
 Description: An IoT Developer specializes in creating software for Internet of Things (IoT) devices, facilitating communication and data exchange among connected devices.
 Core Technology: C, C++, Python 
 Frameworks: IoT platforms (e.g., AWS IoT, Azure IoT)
-Salary: $80,000 to $120,000
+Salary: $110,000
+
+Ex1:
+class Animal {
+  constructor(name, age) {
+    this._name = name;
+    this._age = age;
+  }
+
+  get name() {
+    return this._name;
+  }
+  get age() {
+    return this._age;
+  }
+
+  getInfo() {
+    return `Name: ${this.name}, Age: ${this.age}`;
+  }
+
+  makeSound() {}
+}
+
+class Dog extends Animal {
+  constructor(name, age, breed) {
+    super(name, age);
+    this._breed = breed;
+  }
+
+  makeSound() {
+    return "Woof! Woof!";
+  }
+}
+
+const myDog = new Dog("Buddy", 3, "Golden Retriever");
+
+---------------------------------------------------------------------------------------------------
+Synchronous | Asynchronous | Callbacks | Promise | Async-Away
+---------------------------------------------------------------------------------------------------
+Request <-> Response
+
+1.Synchronous ->  It's important to note that JavaScript is a single-threaded language, meaning it has a single call stack and one operation is executed at a time. Synchronous functions run one after the other in the order they are called.
+
+function synchronousFunction() {
+    console.log("Start of the function");
+    let result = 1 + 1;
+    console.log("Result: " + result);
+    console.log("End of the function");
+}
+synchronousFunction();
+
+Start of the function
+Result: 2
+End of the function
+After calling the function
+
+2.Asynchronous -> If you need to perform asynchronous operations, such as making an API call or reading a file, you would use mechanisms like callbacks, promises, or async/await. Asynchronous operations allow other code to continue running while the asynchronous task is being performed. setTimeout() setInterval()
+
+function asynchronousOperation() {
+    console.log("Start of the asynchronous operation");
+    setTimeout(function() {
+        console.log("End of the asynchronous operation");
+    }, 2000); // This will execute after a delay of 2000 milliseconds (2 seconds)
+}
+asynchronousOperation();
+
+console.log("After calling the asynchronous operation");
+
+Start of the asynchronous operation
+After calling the asynchronous operation
+End of the asynchronous operation (after a 2-second delay)
 
 
+Our JS is running in a browser: Browsers have a APIs that enable us to do asyncrchronous operations
+Common browers APIs: Document Object Model (DOM), FETCH
 
+3.Callbacks
+Function that has been passed as an argument in a Higher Order Function
+Higher Order Function: Function that takes another function as an argument
 
+function houseOne(){
+  console.log('Paper delivered to house 1')
+}
+function houseTwo(callback){
+  setTimeout(() =>{
+    console.log('Paper delivered to house 2')
+    callback()
+  }, 3000)
+}
+function houseThree(){
+  console.log?('Paper delivered to house 3')
+}
 
+houseOne()
+houseTwo(houseThree)
 
+4.Promise
+An object that represent the evental completion or failure of an async operation and its value (and object that may have a value in the future)
+A promise can have three possible states (Pending, fulfilled, rejected)
+
+const promise = new Promise((resolve, reject) => {
+  const error = false
+  if(!error){
+    resolve('Promise has been fullfilled')
+  }else{
+    reject('Error: Operation has failed')
+  }
+})
+console.log(promise)
+promise
+  .then(data => console.log(data))
+  .catch(err => console.log(err))
+
+=================================================================================================
+BACKEND
+=================================================================================================
 */
