@@ -687,11 +687,13 @@ class Dog extends Animal {
 const myDog = new Dog("Buddy", 3, "Golden Retriever");
 
 ---------------------------------------------------------------------------------------------------
-Synchronous | Asynchronous | Callbacks | Promise | Async-Away
+*Synchronous | Asynchronous | Callbacks | Promise | Async-Away
 ---------------------------------------------------------------------------------------------------
-Request <-> Response
+It's important to note that JavaScript is a single-threaded synchronous language, meaning it has a single call stack and one operation is executed at a time. 
+Problem: It can only execute one function at a time
 
-1.Synchronous ->  It's important to note that JavaScript is a single-threaded language, meaning it has a single call stack and one operation is executed at a time. Synchronous functions run one after the other in the order they are called.
+*1.Synchronous Functions
+Synchronous functions run one after the other in the order they are called.
 
 function synchronousFunction() {
     console.log("Start of the function");
@@ -706,7 +708,8 @@ Result: 2
 End of the function
 After calling the function
 
-2.Asynchronous -> If you need to perform asynchronous operations, such as making an API call or reading a file, you would use mechanisms like callbacks, promises, or async/await. Asynchronous operations allow other code to continue running while the asynchronous task is being performed. setTimeout() setInterval()
+*2.Asynchronous Functions
+Asynchronous operations allow other code to continue running while the asynchronous task is being performed. If you need to perform asynchronous operations, such as making an API calls, you would use mechanisms like callbacks, promises, or async/await.
 
 function asynchronousOperation() {
     console.log("Start of the asynchronous operation");
@@ -722,11 +725,13 @@ Start of the asynchronous operation
 After calling the asynchronous operation
 End of the asynchronous operation (after a 2-second delay)
 
+WEB APIs:
+Since our JS is running in a browser, browsers extende the functionality of JS by using web APIs that enable us to do asyncrchronous operations
+Common browers APIs: Document Object Model (DOM), FETCH, setTimeout(), setInterval()
 
-Our JS is running in a browser: Browsers have a APIs that enable us to do asyncrchronous operations
-Common browers APIs: Document Object Model (DOM), FETCH
-
-3.Callbacks
+---------------------------------------------------------------------------------------------------
+RESPONSES
+*1.Callbacks
 Function that has been passed as an argument in a Higher Order Function
 Higher Order Function: Function that takes another function as an argument
 
@@ -746,9 +751,8 @@ function houseThree(){
 houseOne()
 houseTwo(houseThree)
 
-4.Promise
-An object that represent the evental completion or failure of an async operation and its value (and object that may have a value in the future)
-A promise can have three possible states (Pending, fulfilled, rejected)
+*2.Promise
+An object that represent the evental completion or failure of an async operation and its value (and object that may have a value in the future). A promise can have three possible states (Pending, fulfilled, rejected)
 
 const promise = new Promise((resolve, reject) => {
   const error = false
@@ -763,7 +767,118 @@ promise
   .then(data => console.log(data))
   .catch(err => console.log(err))
 
+.then() is an object method that runs after the promise resolves
+
+Ex1: 
+fetch("https:/dog.ceo/api/breeds/image/random")
+  .then(res => res.json()) //parse response as JSON
+  .then(data => {
+    console.log(data)
+  })
+  .catch(err => {
+    console.log(`error ${err}`)
+  })
+  
+
+Ex2:
+function houseOne(){
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Paper deliverd to home 1')
+    }, 1000)
+  })
+}
+function houseTwo(){
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Paper deliverd to home 2')
+    }, 5000)
+  })
+}
+function houseThree(){
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Paper deliverd to home 3')
+    }, 2000)
+  })
+}
+houseOne()
+  .then(data => console.log(data))
+  .then(houseTwo)
+  .then(data => console.log(data))
+  .then(houseThree)
+  .then(data => console.log(data))
+  catch(err => console.log(err))
+
+*Async/Await
+Await waits for an async process to complete inside an Async function. Syntactic sugar on top of promises 
+
+Ex1:
+function houseOne() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Paper deliverd to home 1");
+    }, 1000);
+  });
+}
+function houseTwo() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Paper deliverd to home 2");
+    }, 5000);
+  });
+}
+function houseThree() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Paper deliverd to home 3");
+    }, 2000);
+  });
+}
+async function getPaid() {
+  const houseOneWait = await houseOne();
+  const houseTwoWait = await houseTwo();
+  const houseThreeWait = await houseThree();
+  console.log(houseOneWait);
+  console.log(houseTwoWait);
+  console.log(houseThreeWait);
+}
+
+getPaid();
+
+Ex2:
+async function getDogPhoto(){
+  const res = await fetch('https://dog.ceo/api/breeds/image/random')
+  const data = await res.json()
+  console.log(data)
+}
+getDogPhoto()
 =================================================================================================
-BACKEND
+*BACKEND / Node.js
 =================================================================================================
+Node.js is a JavaScript environment that allows us to run JS in servers and local computers. Like brower's Web APIs, Node comes with libraries and collections of functions. Ex: http(network access), fs(file system access), npm(package manager)
+
+Install Node.js (2:36)
+
+*HTTP & FS
+const http = require('http')
+const fs = require ('fs')
+http.createServer((req, res) => {
+  fs.readFile('demofile.html', (err, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'})
+    res.write(data)
+    res.end()
+  })
+}).listen(8000)
 */
+const http = require("http");
+const fs = require("fs");
+http
+  .createServer((req, res) => {
+    fs.readFile("index.html", (err, data) => {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.write(data);
+      res.end();
+    });
+  })
+  .listen(8000);
