@@ -590,67 +590,29 @@ let softwareDeveloper = new Profession("softwareDeveloper", 107422, "2years");
 
 
 ==============================================================================================
-Object Oriented Programming (OOP) 
+* Object Oriented Programming (OOP) 
 ==============================================================================================
 Object-Oriented Programming (OOP) is a programming paradigm that revolves around the concept of "objects," which can be thought of as instances of classes. This paradigm is based on four main principles, often referred to as the four pillars of OOP: Encapsulation, Abstraction, Inheritance, and Polymorphism.
 ------------------------------------------------------------------------------------------
-1 - Encapsulation (classes / properties and methods)
+*1 - Encapsulation (classes / properties and methods)
 Definition: Encapsulation is the bundling of data (properties) and the methods that operate on the data into a single unit (object).
 Why: It helps in hiding the internal details of how an object works and only exposes what is necessary. This makes the code more modular, secure, and easy to understand. 
 ------------------------------------------------------------------------------------------
-2 - Abstraction (getter / _private properties)
+*2 - Abstraction (getter / _private properties)
 Definition: Abstraction involves simplifying complex systems by modeling classes based on the essential properties and behaviors they possess.
 Why: It provides a clear and simplified interface for interacting with objects, allowing users to focus on what an object does rather than how it achieves its functionality.
 
 Getter methods:
 Special type of method in a class that are used to retrieve the value of a specific property
 ------------------------------------------------------------------------------------------
-3 - Inheritance (extent / super)
+*3 - Inheritance (extent / super)
 Definition: Inheritance is a mechanism that allows a new class (subclass or derived class) to inherit properties and behaviors from an existing class (superclass or base class).
 Why: It promotes code reuse, allowing you to create a new class based on an existing class, inheriting its features and extending or modifying them as needed.
 ------------------------------------------------------------------------------------------
-4 - Polymorphism
+*4 - Polymorphism
 Definition: Polymorphism allows objects of different types to be treated as objects of a common type. It enables a single interface to represent different types of objects.
 Why: It promotes flexibility and extensibility in the code. A function or method can work with objects of multiple types, making the code more versatile.
 ------------------------------------------------------------------------------------------
-
-Ex1: Web Developer Career Paths
-DATA
-Name: Software Developer
-General Description: Software developers design, build, and maintain software and applications.
-
-Name: Front-End Developer
-Description: A Front-End Developer specializes in building the client-side portion of web applications, focusing on user interface and user experience.
-Core Technology: HTML, CSS, JavaScript, 
-Frameworks: React, Angular, Vue
-API Integration: REST APIs, GraphQL
-Salary: $100.000
-
-Name: Back-End Developer
-Description: A Back-End Developer focuses on the server-side development, handling databases, server logic, and ensuring the smooth functioning of web applications.
-Core Technology: Node, Python, PHP, C#, Ruby, APIs
-Frameworks: Express.js (Node.js), Django (Python), Ruby on Rails (Ruby)
-Database: MySQL, Postgre, MongoDB
-Salary: $120.000
-
-Name: Freelance Web Developer
-Description: A Freelance Web Developer is a self-employed professional who offers web development services on a project basis
-Core Technology: HTML, CSS, JavaScript, Wordpress, Wix, Webflow, SEO
-Frameworks: React, Angular, Vue
-Skills: Marketing, Project Management, Client Communication, Business Development
-Salary: $70.000
-
-Name: Mobile Developer
-Description: A Mobile Developer creates applications for mobile devices, such as smartphones and tablets.
-Core Technology: Java, Kotlin for Android; Swift, Objective-C for iOS
-Frameworks: React Native, Flutter
-Salary: $120,000
-
-Name: IoT Developer
-Description: An IoT Developer specializes in creating software for Internet of Things (IoT) devices, facilitating communication and data exchange among connected devices.
-Core Technology: C, C++, Python 
-Frameworks: IoT platforms (e.g., AWS IoT, Azure IoT)
-Salary: $110,000
 
 Ex1:
 class Animal {
@@ -870,15 +832,163 @@ http.createServer((req, res) => {
     res.end()
   })
 }).listen(8000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==============================================================================================
+* Object Oriented Programming (OOP) 
+==============================================================================================
+Object-Oriented Programming (OOP) is a programming paradigm that revolves around the concept of "objects," which can be thought of as instances of classes. This paradigm is based on four main principles, often referred to as the four pillars of OOP: Encapsulation, Abstraction, Inheritance, and Polymorphism.
+------------------------------------------------------------------------------------------
+*1 - Encapsulation (classes / properties and methods)
+Definition: Encapsulation is the bundling of data (properties) and the methods that operate on the data into a single unit (object).
+Why: It helps in hiding the internal details of how an object works and only exposes what is necessary. This makes the code more modular, secure, and easy to understand. 
+------------------------------------------------------------------------------------------
+*2 - Abstraction (getter / _private properties)
+Definition: Abstraction involves simplifying complex systems by modeling classes based on the essential properties and behaviors they possess.
+
+Why: It provides a clear and simplified interface for interacting with objects, allowing users to focus on what an object does rather than how it achieves its functionality.
+
+Getter methods:
+Special type of method in a class that are used to retrieve the value of a specific property
+------------------------------------------------------------------------------------------
+*3 - Inheritance (extent / super)
+Definition: Inheritance is a mechanism that allows a new class (subclass or derived class) to inherit properties and behaviors from an existing class (superclass or base class).
+Why: It promotes code reuse, allowing you to create a new class based on an existing class, inheriting its features and extending or modifying them as needed.
+------------------------------------------------------------------------------------------
+*4 - Polymorphism
+Definition: Polymorphism allows objects of different types to be treated as objects of a common type. It enables a single interface to represent different types of objects.
+Why: It promotes flexibility and extensibility in the code. A function or method can work with objects of multiple types, making the code more versatile.
+------------------------------------------------------------------------------------------
+
+Ex1:
+class Animal {
+  constructor(name, age) {
+    this._name = name;
+    this._age = age;
+  }
+
+  get name() {
+    return this._name;
+  }
+  get age() {
+    return this._age;
+  }
+
+  getInfo() {
+    return `Name: ${this.name}, Age: ${this.age}`;
+  }
+
+  makeSound() {}
+}
+
+class Dog extends Animal {
+  constructor(name, age, breed) {
+    super(name, age);
+    this._breed = breed;
+  }
+
+  makeSound() {
+    return "Woof! Woof!";
+  }
+}
+
+const myDog = new Dog("Buddy", 3, "Golden Retriever");
+
+Ex2:
+// 1-Encapsulation
+class Cars {
+  constructor(name, year, color) {
+    // 2-Abstraction (private property / getter)
+    this._name = name;
+    this._year = year;
+    this._color = color;
+  }
+  get name() {
+    return this._name;
+  }
+  get year() {
+    return this._year;
+  }
+  get color() {
+    return this._color;
+  }
+
+  // 4-Polymorphism (method overriding)
+  displayInfo() {
+    console.log(`Name: ${this.name}, Year: ${this.year}, Color: ${this.color}`);
+  }
+}
+
+// 3-Inheritance (extend / super)
+class Honda extends Cars {
+  constructor(name, year, color, country) {
+    super(name, year, color);
+    this._country = country;
+  }
+  get country() {
+    return this._country;
+  }
+
+  // 4-Polymorphism (method overriding)
+  displayInfo() {
+    // Calling the base class method
+    super.displayInfo();
+    console.log(`Country: ${this.country}`);
+  }
+}
+
+// 3-Inheritance (extend / super)
+class Toyota extends Cars {
+  constructor(name, year, color, price) {
+    super(name, year, color);
+    this._price = price;
+  }
+  get price() {
+    return this._price;
+  }
+
+  // 4-Polymorphism (method overriding)
+  displayInfo() {
+    // Calling the base class method
+    super.displayInfo();
+    console.log(`Price: $${this.price}`);
+  }
+}
+
+let toyota = new Toyota("Toyota", 2023, "gray", 20000);
+let honda = new Honda("Honda", 2023, "red", "Japan");
+
+// Using polymorphism
+toyota.displayInfo(); // Displays information specific to Toyota
+honda.displayInfo(); // Displays information specific to Honda
 */
-const http = require("http");
-const fs = require("fs");
-http
-  .createServer((req, res) => {
-    fs.readFile("index.html", (err, data) => {
-      res.writeHead(200, { "Content-Type": "text/html" });
-      res.write(data);
-      res.end();
-    });
-  })
-  .listen(8000);
