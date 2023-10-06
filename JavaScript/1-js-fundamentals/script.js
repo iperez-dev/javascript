@@ -651,8 +651,8 @@ const myDog = new Dog("Buddy", 3, "Golden Retriever");
 ---------------------------------------------------------------------------------------------------
 *Synchronous | Asynchronous | Callbacks | Promise | Async-Away
 ---------------------------------------------------------------------------------------------------
-It's important to note that JavaScript is a single-threaded synchronous language, meaning it has a single call stack and one operation is executed at a time. 
-Problem: It can only execute one function at a time
+JavaScript is a single-threaded synchronous language (One after the other)
+What is the problem with this?
 
 *1.Synchronous Functions
 Synchronous functions run one after the other in the order they are called.
@@ -673,48 +673,56 @@ After calling the function
 *2.Asynchronous Functions
 Asynchronous operations allow other code to continue running while the asynchronous task is being performed. If you need to perform asynchronous operations, such as making an API calls, you would use mechanisms like callbacks, promises, or async/await.
 
-function asynchronousOperation() {
-    console.log("Start of the asynchronous operation");
-    setTimeout(function() {
-        console.log("End of the asynchronous operation");
-    }, 2000); // This will execute after a delay of 2000 milliseconds (2 seconds)
-}
-asynchronousOperation();
-
-console.log("After calling the asynchronous operation");
-
-Start of the asynchronous operation
-After calling the asynchronous operation
-End of the asynchronous operation (after a 2-second delay)
-
 WEB APIs:
 Since our JS is running in a browser, browsers extende the functionality of JS by using web APIs that enable us to do asyncrchronous operations
 Common browers APIs: Document Object Model (DOM), FETCH, setTimeout(), setInterval()
 
 ---------------------------------------------------------------------------------------------------
-RESPONSES
 *1.Callbacks
-Function that has been passed as an argument in a Higher Order Function
-Higher Order Function: Function that takes another function as an argument
+- Function that has been passed as an argument in a Higher Order Function. 
+- Callbacks are conventions.
+- Higher Order Function: Function that takes another function as an argument.
+- Callbacks fires when async task is done.
+- The Callback function allows us to perform Asynchronous operations in a synchronous language like JS
+- Problem: The code can get complex and unreadable
+//Synchronous Function
+function houseOne() {
+  console.log("Paper delivered to house 1");
+}
+function houseTwo() {
+  console.log("Paper delivered to house 2");
+}
+function houseThree() {
+  console.log("Paper delivered to house 3");
+}
 
-function houseOne(){
-  console.log('Paper delivered to house 1')
+houseOne();
+houseTwo();
+houseThree();
+
+//Callback function
+function houseOne() {
+  console.log("Paper delivered to house 1");
 }
-function houseTwo(callback){
-  setTimeout(() =>{
-    console.log('Paper delivered to house 2')
-    callback()
-  }, 3000)
+function houseTwo(callback) {
+  setTimeout(() => {
+    console.log("Paper delivered to house 2");
+    callback();
+  }, 3000);
 }
-function houseThree(){
-  console.log?('Paper delivered to house 3')
+function houseThree() {
+  console.log("Paper delivered to house 3");
 }
+
+houseOne();
+houseTwo(houseThree);
 
 houseOne()
 houseTwo(houseThree)
 
 *2.Promise
-An object that represent the evental completion or failure of an async operation and its value (and object that may have a value in the future). A promise can have three possible states (Pending, fulfilled, rejected)
+- An object that represent the evental completion or failure of an async operation and its value (and object that will have a value in the future). 
+- A promise can have three possible states (pending, fulfilled, rejected)
 
 const promise = new Promise((resolve, reject) => {
   const error = false
@@ -729,9 +737,9 @@ promise
   .then(data => console.log(data))
   .catch(err => console.log(err))
 
-.then() is an object method that runs after the promise resolves
 
-Ex1: 
+
+*Ex1: 
 fetch("https:/dog.ceo/api/breeds/image/random")
   .then(res => res.json()) //parse response as JSON
   .then(data => {
@@ -815,180 +823,16 @@ async function getDogPhoto(){
   console.log(data)
 }
 getDogPhoto()
-=================================================================================================
-*BACKEND / Node.js
-=================================================================================================
-Node.js is a JavaScript environment that allows us to run JS in servers and local computers. Like brower's Web APIs, Node comes with libraries and collections of functions. Ex: http(network access), fs(file system access), npm(package manager)
 
-Install Node.js (2:36)
-
-*HTTP & FS
-const http = require('http')
-const fs = require ('fs')
-http.createServer((req, res) => {
-  fs.readFile('demofile.html', (err, data) => {
-    res.writeHead(200, {'Content-Type': 'text/html'})
-    res.write(data)
-    res.end()
-  })
-}).listen(8000)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-==============================================================================================
-* Object Oriented Programming (OOP) 
-==============================================================================================
-Object-Oriented Programming (OOP) is a programming paradigm that revolves around the concept of "objects," which can be thought of as instances of classes. This paradigm is based on four main principles, often referred to as the four pillars of OOP: Encapsulation, Abstraction, Inheritance, and Polymorphism.
-------------------------------------------------------------------------------------------
-*1 - Encapsulation (classes / properties and methods)
-Definition: Encapsulation is the bundling of data (properties) and the methods that operate on the data into a single unit (object).
-Why: It helps in hiding the internal details of how an object works and only exposes what is necessary. This makes the code more modular, secure, and easy to understand. 
-------------------------------------------------------------------------------------------
-*2 - Abstraction (getter / _private properties)
-Definition: Abstraction involves simplifying complex systems by modeling classes based on the essential properties and behaviors they possess.
-
-Why: It provides a clear and simplified interface for interacting with objects, allowing users to focus on what an object does rather than how it achieves its functionality.
-
-Getter methods:
-Special type of method in a class that are used to retrieve the value of a specific property
-------------------------------------------------------------------------------------------
-*3 - Inheritance (extent / super)
-Definition: Inheritance is a mechanism that allows a new class (subclass or derived class) to inherit properties and behaviors from an existing class (superclass or base class).
-Why: It promotes code reuse, allowing you to create a new class based on an existing class, inheriting its features and extending or modifying them as needed.
-------------------------------------------------------------------------------------------
-*4 - Polymorphism
-Definition: Polymorphism allows objects of different types to be treated as objects of a common type. It enables a single interface to represent different types of objects.
-Why: It promotes flexibility and extensibility in the code. A function or method can work with objects of multiple types, making the code more versatile.
-------------------------------------------------------------------------------------------
-
-Ex1:
-class Animal {
-  constructor(name, age) {
-    this._name = name;
-    this._age = age;
-  }
-
-  get name() {
-    return this._name;
-  }
-  get age() {
-    return this._age;
-  }
-
-  getInfo() {
-    return `Name: ${this.name}, Age: ${this.age}`;
-  }
-
-  makeSound() {}
-}
-
-class Dog extends Animal {
-  constructor(name, age, breed) {
-    super(name, age);
-    this._breed = breed;
-  }
-
-  makeSound() {
-    return "Woof! Woof!";
-  }
-}
-
-const myDog = new Dog("Buddy", 3, "Golden Retriever");
-
-Ex2:
-// 1-Encapsulation
-class Cars {
-  constructor(name, year, color) {
-    // 2-Abstraction (private property / getter)
-    this._name = name;
-    this._year = year;
-    this._color = color;
-  }
-  get name() {
-    return this._name;
-  }
-  get year() {
-    return this._year;
-  }
-  get color() {
-    return this._color;
-  }
-
-  // 4-Polymorphism (method overriding)
-  displayInfo() {
-    console.log(`Name: ${this.name}, Year: ${this.year}, Color: ${this.color}`);
-  }
-}
-
-// 3-Inheritance (extend / super)
-class Honda extends Cars {
-  constructor(name, year, color, country) {
-    super(name, year, color);
-    this._country = country;
-  }
-  get country() {
-    return this._country;
-  }
-
-  // 4-Polymorphism (method overriding)
-  displayInfo() {
-    // Calling the base class method
-    super.displayInfo();
-    console.log(`Country: ${this.country}`);
-  }
-}
-
-// 3-Inheritance (extend / super)
-class Toyota extends Cars {
-  constructor(name, year, color, price) {
-    super(name, year, color);
-    this._price = price;
-  }
-  get price() {
-    return this._price;
-  }
-
-  // 4-Polymorphism (method overriding)
-  displayInfo() {
-    // Calling the base class method
-    super.displayInfo();
-    console.log(`Price: $${this.price}`);
-  }
-}
-
-let toyota = new Toyota("Toyota", 2023, "gray", 20000);
-let honda = new Honda("Honda", 2023, "red", "Japan");
-
-// Using polymorphism
-toyota.displayInfo(); // Displays information specific to Toyota
-honda.displayInfo(); // Displays information specific to Honda
 */
+
+const promise = new Promise((resolve, reject) => {
+  const error = false;
+  if (!error) {
+    resolve("Promise has been fullfilled");
+  } else {
+    reject("Error: Operation has failed");
+  }
+});
+console.log(promise);
+promise.then((data) => console.log(data)).catch((err) => console.log(err));
