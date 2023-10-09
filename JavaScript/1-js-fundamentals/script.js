@@ -733,6 +733,9 @@ const promise = new Promise((resolve, reject) => {
   }
 })
 console.log(promise)
+
+
+- The then() method execute after the promese is fullfilled
 promise
   .then(data => console.log(data))
   .catch(err => console.log(err))
@@ -826,13 +829,25 @@ getDogPhoto()
 
 */
 
+// const promise = new Promise((resolve, reject) => {
+//   const error = false;
+//   if (!error) {
+//     resolve("Promise has been fullfilled");
+//   } else {
+//     reject("Error: Operation has failed");
+//   }
+// });
+// console.log(promise);
+// promise.then((data) => console.log(data)).catch((err) => console.log(err));
+
 const promise = new Promise((resolve, reject) => {
   const error = false;
   if (!error) {
-    resolve("Promise has been fullfilled");
+    resolve("Promise has been resolved");
   } else {
-    reject("Error: Operation has failed");
+    reject("Error: Operation failed");
   }
 });
+
 console.log(promise);
 promise.then((data) => console.log(data)).catch((err) => console.log(err));
