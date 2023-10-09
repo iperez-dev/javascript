@@ -742,7 +742,7 @@ promise
 
 
 
-*Ex1: 
+Ex1: 
 fetch("https:/dog.ceo/api/breeds/image/random")
   .then(res => res.json()) //parse response as JSON
   .then(data => {
@@ -827,27 +827,18 @@ async function getDogPhoto(){
 }
 getDogPhoto()
 
-*/
-
-// const promise = new Promise((resolve, reject) => {
-//   const error = false;
-//   if (!error) {
-//     resolve("Promise has been fullfilled");
-//   } else {
-//     reject("Error: Operation has failed");
-//   }
-// });
-// console.log(promise);
-// promise.then((data) => console.log(data)).catch((err) => console.log(err));
-
-const promise = new Promise((resolve, reject) => {
-  const error = false;
-  if (!error) {
-    resolve("Promise has been resolved");
-  } else {
-    reject("Error: Operation failed");
+Ex2.1:
+async function getDogPhoto() {
+  try {
+    const res = await fetch('https://dog.ceo/api/breeds/image/random');
+    const data = await res.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error fetching dog photo:');
   }
-});
+}
 
-console.log(promise);
-promise.then((data) => console.log(data)).catch((err) => console.log(err));
+getDogPhoto();
+
+
+*/
